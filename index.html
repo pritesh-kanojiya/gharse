@@ -22,7 +22,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Satisfy&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700;800;900&family=Poppins:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles.css">
     
@@ -51,51 +51,16 @@
     </script>
 </head>
 <body>
-    <!-- Sticky Header with Call Buttons -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="brand">
-                    <h1 class="brand-name">Ghar Se Cafe</h1>
-                    <p class="brand-tagline">Jo khaya, Ghar se aya</p>
-                </div>
-                <div class="cta-buttons">
-                    <a href="tel:+918830324471" class="btn btn-primary" aria-label="Call primary number">
-                        <span class="btn-text">
-                            <span class="btn-label">Call to Order</span>
-                            <span class="btn-number">+91 88303 24471</span>
-                        </span>
-                    </a>
-                    <a href="tel:+918999241567" class="btn btn-secondary" aria-label="Call backup number">
-                        <span class="btn-text">
-                            <span class="btn-label">Alternate</span>
-                            <span class="btn-number">+91 89992 41567</span>
-                        </span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </header>
-
     <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
+        <!-- Hero Section with Logo -->
+        <section class="hero-main">
             <div class="container">
-                <h2 class="hero-title">Artisan Delicacies from Chef Sunita's Kitchen</h2>
-                <p class="hero-subtitle">A decade of baking mastery, now in Nashik</p>
-            </div>
-        </section>
-
-        <!-- Direct Order Benefit Banner -->
-        <section class="benefit-banner">
-            <div class="container">
-                <div class="benefit-card">
-                    <div class="benefit-content">
-                        <h3 class="benefit-title">Exclusive Direct Order Benefit</h3>
-                        <p class="benefit-description">Enjoy special pricing when you call - 15% exclusive rate for all phone orders</p>
-                    </div>
+                <div class="hero-logo-wrapper">
+                    <img src="images/logo.jpeg" alt="Ghar Se Cafe Logo" class="hero-logo">
                 </div>
+                <h1 class="hero-brand-name">Ghar Se Cafe</h1>
+                <p class="hero-brand-tagline">Jo khaya, Ghar se aya</p>
             </div>
         </section>
 
@@ -177,7 +142,6 @@
                             <a href="tel:+918830324471" class="method-link">+91 88303 24471</a>
                             <a href="tel:+918999241567" class="method-link">+91 89992 41567</a>
                         </div>
-                        <span class="method-badge">Recommended</span>
                     </div>
                     
                     <div class="method-card method-zomato">
@@ -226,35 +190,24 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section class="contact">
+        <!-- Map Section -->
+        <section class="map-section">
             <div class="container">
-                <h2 class="section-title">Get in Touch</h2>
+                <h2 class="section-title">Come find us here!</h2>
+                <p class="section-subtitle">Visit our cozy kitchen where every treat is baked with love</p>
                 
-                <div class="contact-grid">
-                    <div class="contact-card">
-                        <h3 class="contact-heading">Location</h3>
-                        <p class="contact-detail">
-                            Plot 1, Nirvighnam Bungalow<br>
-                            Vijay Nagar, Near Satyavinayak Society<br>
-                            Deolali, Nashik
-                        </p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <h3 class="contact-heading">Phone</h3>
-                        <p class="contact-detail">
-                            <a href="tel:+918830324471">+91 88303 24471</a><br>
-                            <a href="tel:+918999241567">+91 89992 41567</a>
-                        </p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <h3 class="contact-heading">Email</h3>
-                        <p class="contact-detail">
-                            <a href="mailto:gharse.contact@gmail.com">gharse.contact@gmail.com</a>
-                        </p>
-                    </div>
+                <div class="map-wrapper">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.0597660169465!2d73.83738183820321!3d19.87969808157447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdd955878ac249b%3A0xf6a99029b8a424d6!2sGhar%20Se%20Cafe!5e0!3m2!1sen!2sin!4v1784530184587!5m2!1sen!2sin"
+                        width="600"
+                        height="450"
+                        style="border:0;"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        class="map-embed"
+                        allowfullscreen="" 
+                        loading="lazy"
+                        title="Ghar Se Cafe Location - Deolali, Nashik">
+                    </iframe>
                 </div>
             </div>
         </section>
