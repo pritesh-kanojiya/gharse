@@ -1,6 +1,19 @@
 /* ============================================
    CSS Custom Properties (Design System)
    ============================================ */
+
+/* ============================================
+   Custom Fonts
+   ============================================ */
+@font-face {
+    font-family: 'Railey';
+    src: url('fonts/Railey.ttf') format('truetype'),
+         url('fonts/Railey.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     /* Colors - Pastel Pink, Purple, Beige Palette */
     --color-primary-cream: #FFF9F5;
@@ -26,7 +39,8 @@
     --color-shadow-strong: rgba(107, 91, 110, 0.2);
     
     /* Typography */
-    --font-heading: 'Satisfy', cursive;
+    --font-brand: 'Railey', 'Raleway', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
     --font-body: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     
     --font-size-xs: 0.75rem;      /* 12px */
@@ -99,11 +113,29 @@ body {
 /* ============================================
    Typography
    ============================================ */
-h1, h2, h3, h4, h5, h6 {
+/* Brand name (h1) - Raleway font */
+h1 {
+    font-family: var(--font-brand);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-dark-plum);
+}
+
+/* Section headings (h2) - Poppins font */
+h2 {
     font-family: var(--font-heading);
     font-weight: 700;
     line-height: 1.2;
     color: var(--color-dark-plum);
+}
+
+/* Sub-headings - Readable body font */
+h3, h4, h5, h6 {
+    font-family: var(--font-body);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-dark-plum);
+    letter-spacing: 0.01em;
 }
 
 a {
@@ -132,40 +164,50 @@ a:focus {
 }
 
 /* ============================================
-   Header (Sticky)
+   Hero Main Section (Logo + Brand)
    ============================================ */
-.header {
-    background-color: var(--color-white);
-    box-shadow: var(--shadow-md);
-    position: relative;
-    z-index: 1000;
-    padding: var(--spacing-md) 0;
+.hero-main {
+    background: linear-gradient(135deg, var(--color-accent-purple-light) 0%, var(--color-accent-pink-light) 50%, var(--color-primary-beige) 100%);
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+    text-align: center;
 }
 
-.header-content {
+.hero-logo-wrapper {
     display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
+    justify-content: center;
+    margin-bottom: var(--spacing-xl);
 }
 
-.brand-name {
-    font-size: var(--font-size-2xl);
-    margin: 0;
+.hero-logo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--radius-full);
+    box-shadow: 0 10px 40px rgba(107, 91, 110, 0.25);
+    border: 6px solid var(--color-white);
+    transition: all var(--transition-slow);
+}
+
+.hero-logo:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 15px 50px rgba(107, 91, 110, 0.35);
+}
+
+.hero-brand-name {
+    font-size: var(--font-size-5xl);
+    margin: 0 0 var(--spacing-sm);
     color: var(--color-dark-plum);
+    letter-spacing: 0.03em;
+    text-shadow: 2px 2px 4px rgba(74, 63, 77, 0.1);
 }
 
-.brand-tagline {
-    font-size: var(--font-size-sm);
-    color: var(--color-dark-purple);
+.hero-brand-tagline {
+    font-size: var(--font-size-2xl);
+    color: var(--color-cta-secondary);
     font-style: italic;
-    margin-top: var(--spacing-xs);
-}
-
-.cta-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
-    width: 100%;
+    margin-bottom: 0;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(181, 159, 199, 0.15);
 }
 
 /* ============================================
@@ -251,57 +293,7 @@ a:focus {
     letter-spacing: 0.02em;
 }
 
-/* ============================================
-   Hero Section
-   ============================================ */
-.hero {
-    background: linear-gradient(135deg, var(--color-accent-purple-light) 0%, var(--color-accent-pink-light) 100%);
-    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
-    text-align: center;
-}
 
-.hero-title {
-    font-size: var(--font-size-3xl);
-    margin-bottom: var(--spacing-md);
-    color: var(--color-dark-plum);
-}
-
-.hero-subtitle {
-    font-size: var(--font-size-lg);
-    color: var(--color-dark-purple);
-    font-style: italic;
-}
-
-/* ============================================
-   Benefit Banner
-   ============================================ */
-.benefit-banner {
-    background-color: var(--color-benefit-bg);
-    padding: var(--spacing-xl) 0;
-}
-
-.benefit-card {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-lg);
-    background-color: var(--color-card-bg);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-xl);
-    border: 3px solid var(--color-benefit-border);
-    box-shadow: var(--shadow-lg);
-}
-
-.benefit-title {
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--spacing-xs);
-    color: var(--color-dark-plum);
-}
-
-.benefit-description {
-    font-size: var(--font-size-base);
-    color: var(--color-dark-purple);
-    margin: 0;
-}
 
 /* ============================================
    Sections
@@ -378,9 +370,10 @@ section {
 }
 
 .commitment-title {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-2xl);
     margin-bottom: var(--spacing-sm);
     color: var(--color-dark-plum);
+    font-weight: 700;
 }
 
 .commitment-text {
@@ -464,13 +457,14 @@ section {
 }
 
 .method-phone {
-    border: 3px solid var(--color-cta-primary);
+    border: 3px solid var(--color-cta-secondary);
 }
 
 .method-title {
     font-size: var(--font-size-2xl);
     margin-bottom: var(--spacing-sm);
     color: var(--color-dark-plum);
+    font-weight: 700;
 }
 
 .method-description {
@@ -536,9 +530,10 @@ section {
 }
 
 .note-title {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl);
     margin-bottom: var(--spacing-xs);
     color: var(--color-dark-plum);
+    font-weight: 700;
 }
 
 .note-text {
@@ -548,42 +543,75 @@ section {
 }
 
 /* ============================================
-   Contact Section
+   Map Section
    ============================================ */
-.contact {
-    background: linear-gradient(135deg, var(--color-primary-cream) 0%, var(--color-accent-pink-light) 100%);
+.map-section {
+    background: linear-gradient(135deg, var(--color-accent-purple-light) 0%, var(--color-primary-cream) 100%);
 }
 
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing-lg);
+.map-wrapper {
+    margin: var(--spacing-2xl) 0;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    border: 4px solid var(--color-cta-secondary);
+}
+
+.map-embed {
+    width: 100%;
+    height: 400px;
+    border: none;
+    display: block;
+}
+
+.map-address {
+    background-color: var(--color-card-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    border: 3px solid var(--color-cta-secondary);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
     margin-top: var(--spacing-xl);
 }
 
-.contact-card {
-    background-color: var(--color-card-bg);
-    padding: var(--spacing-xl);
-    border-radius: var(--radius-lg);
-    border: 3px solid var(--color-benefit-border);
-    text-align: center;
-    box-shadow: var(--shadow-sm);
-}
-
-.contact-heading {
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--spacing-md);
-    color: var(--color-dark-plum);
-}
-
-.contact-detail {
-    font-size: var(--font-size-base);
+.map-address-text {
+    font-size: var(--font-size-lg);
     color: var(--color-dark-purple);
     line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
 }
 
-.contact-detail a {
+.map-address-text strong {
+    color: var(--color-dark-plum);
+    font-size: var(--font-size-xl);
+}
+
+.map-contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.map-contact-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-base);
     font-weight: 600;
+    color: var(--color-dark-purple);
+    padding: var(--spacing-md);
+    background-color: var(--color-accent-purple-light);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.map-contact-link:hover {
+    background-color: var(--color-cta-secondary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
 /* ============================================
@@ -617,6 +645,8 @@ section {
     font-size: var(--font-size-3xl);
     color: var(--color-primary-cream);
     margin-bottom: var(--spacing-xs);
+    font-family: var(--font-brand);
+    font-weight: 800;
 }
 
 .footer-tagline {
@@ -697,47 +727,19 @@ section {
         --container-padding: var(--spacing-xl);
     }
     
-    /* Header - Make sticky on larger screens */
-    .header {
-        position: sticky;
-        top: 0;
+    /* Hero Main - Larger logo and text on tablets+ */
+    .hero-logo {
+        width: 240px;
+        height: 240px;
+        border: 8px solid var(--color-white);
     }
     
-    .header-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+    .hero-brand-name {
+        font-size: 4rem;
     }
     
-    .cta-buttons {
-        flex-direction: row;
-        width: auto;
-    }
-    
-    .brand-name {
+    .hero-brand-tagline {
         font-size: var(--font-size-3xl);
-    }
-    
-    /* Hero */
-    .hero-title {
-        font-size: var(--font-size-4xl);
-    }
-    
-    .hero-subtitle {
-        font-size: var(--font-size-xl);
-    }
-    
-    /* Benefit Banner */
-    .benefit-card {
-        padding: var(--spacing-xl) var(--spacing-2xl);
-    }
-    
-    .benefit-title {
-        font-size: var(--font-size-2xl);
-    }
-    
-    .benefit-description {
-        font-size: var(--font-size-lg);
     }
     
     /* Section Title */
@@ -762,9 +764,15 @@ section {
         gap: var(--spacing-xl);
     }
     
-    /* Contact Grid */
-    .contact-grid {
-        grid-template-columns: repeat(3, 1fr);
+    /* Map Section */
+    .map-embed {
+        height: 500px;
+    }
+    
+    .map-contact-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: var(--spacing-lg);
     }
     
     /* Footer */
@@ -815,12 +823,6 @@ section {
    Print Styles
    ============================================ */
 @media print {
-    .header,
-    .cta-buttons,
-    .benefit-banner {
-        display: none;
-    }
-    
     body {
         background-color: white;
         color: black;
